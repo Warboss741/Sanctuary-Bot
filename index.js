@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const timeDate = require('date-time');
 const num = require('random-num');
-//const rn = require('random-number');
 const token = require('./json_configs/tokens.json');
 const rule = require('./json_configs/rules.json');
+const role = require('./json_configs/roles.json');
 const time = timeDate({local: true, showMilliseconds: true, showTimeZone: true})
 
 bot.on('ready', () => {
@@ -47,13 +47,8 @@ const msS = (msR + ' Milliseconds.');
   } else { 
     let args = msg.content.substring(prefix.length).split(" ");
 
-//    var options = {
-//      min: args[1],
-//      max: args[2],
-//      integer: true
-//    }
-
     switch (args[0]) {
+
       case 'ping':
         msg.delete()
         const ping = bot.ws.ping
@@ -257,6 +252,72 @@ const msS = (msR + ' Milliseconds.');
           msg.channel.bulkDelete(args[1]);
         }
         console.log(`${msg.author.username} used purge command in ${msg.channel.name} in ${msg.guild} at ` + time)
+        break;
+      
+      case 'warn':
+        msg.delete()
+        if (!msg.member.hasPermission('MANAGE_ROLES')) {
+          const warnError = new Discord.MessageEmbed()
+            .setTitle('Error!')
+            .setColor('0xEED202')
+            .addField('Permissions', `${msg.author.username}, You do not have sufficient permissions to use that command.`)
+            .setFooter('Please contact Garbear101#5999 or Warboss741#6658 if you believe this is an error')
+          msg.reply(warnError)
+        } else {
+          if (!args[1]) {
+            const warnArgs = new Discord.MessageEmbed()
+              .setTitle('Error!')
+              .setColor('0xEED202')
+              .addField('Users', `${msg.author.username}, You have failed to mention a user to warn.`)
+              .addField('Proper Useage', '//warn {Tag User To Warn Here} {Type Reason Here}')
+              .setFooter('If you believe this is an error, please contact Warboss741#6658')
+            msg.reply(warnArgs)
+          } else {
+            if (!args[2]) {
+              const warnRsn = new Discord.MessageEmbed()
+                .setTitle('Error!')
+                .setColor('0xEED202')
+                .addField('Reason', `${msg.author.username}, You failed to provide a reason for the warning`)
+                .addField('Proper Useage', '//warn {Tag User To Warn Here} {Type Reason Here}')
+                .setFooter('If you believe this is an error, please contact Warboss741#6658')
+              msg.reply(warnRsn)
+            } else {
+              const warn1 = msg.guild.roles.fetch(role.Warn1)
+              const warn2 = msg.guild.roles.fetch(role.Warn2)
+              const dungeon = msg.guild.roles.fetch(role.Dungeon)
+              const user = msg.mentions.users.first()
+
+              if (msg.mentions.users.has(warn1)) {
+                user.addRole(warn2)
+                user.removeRole(warn1)
+                const warned2 = new Discord.MessageEmbed()
+                  .addTitle('Warned')
+                  .setColor('0x000000')
+                  .addField('User Warned', `${user.username} has been warned for the second time`)
+                  .setFooter('If you believe this is an error, contact a moderator')
+                msg.channel.send(warned2)
+              } else if (msg.mentions.users.has(warn2)) {
+                user.addRole(dungeon)
+                user.removeRole(warn2)
+                const dungeoned = new Discord.MessageEmbed()
+                  .addTitle('Warned')
+                  .setColor('0x000000')
+                  .addField('User Warned', `${user.username} has been warned for the third time, and subsequently dungeoned`)
+                  .setFooter('If you believe this is an error, contact a moderator')
+                msg.channel.send(dungeoned)
+              } else {
+                user.addRole(warn1)
+                const warned1 = new Discord.MessageEmbed()
+                  .addTitle('Warned')
+                  .setColor('0x000000')
+                  .addField('User Warned', `${user.username} has been warned for the first time`)
+                  .setFooter('If you believe this is an error, contact a moderator')
+                msg.channel.send(warned1)
+              }
+            }
+          }
+        }
+        console.log(`${msg.author.username} used the warn command on ` + args[1] + ` in ${msg.channel.name} in the guild ${msg.guild.name} at ` + time)
         break;
 
       case 'dungeon':
