@@ -5,10 +5,9 @@ const num = require('random-num');
 const token = require('./json_configs/tokens.json');
 const rule = require('./json_configs/rules.json');
 const role = require('./json_configs/roles.json');
-const time = timeDate({local: true, showMilliseconds: true, showTimeZone: true})
 
 bot.on('ready', () => {
-  console.log(`Logged in as ${bot.user.tag} at ` + time);
+  console.log(`Logged in as ${bot.user.tag} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}));
 });
 
 const prefix = "//";
@@ -39,7 +38,7 @@ const msS = (msR + ' Milliseconds.');
     msg.member.roles.set(['604373693933813815', '485191718791151625'])
       .then(console.log)
       .catch(console.error);
-    console.log(`${msg.author.username} Dungeoned from ${msg.channel.name} in ${msg.guild} at ` + time);
+    console.log(`${msg.author.username} Dungeoned from ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}));
   }
 
   if (!msg.content.startsWith(prefix)) {
@@ -58,7 +57,7 @@ const msS = (msR + ' Milliseconds.');
           .addField('Current Ping :', ping)
           .setFooter('Ping Displayed Is An Average Of The Last 5 Recorded Pings, Not The Actual Current Ping')
         msg.reply(pingE)
-        console.log(`${msg.author.username} used ping command  in ${msg.channel.name} in ${msg.guild} at ` + time)
+        console.log(`${msg.author.username} used ping command  in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
 
       case 'uptime':
@@ -87,7 +86,7 @@ const msS = (msR + ' Milliseconds.');
             .setTitle('Uptime = ' + dayS + hourS + minS + secS + msS)
             .setFooter('Uptime Is Just An Estimate, (And Is Sometimes Buggy)')
         }
-        console.log(`${msg.author.username} used uptime command in ${msg.channel.name} in ${msg.guild} at ` + time)
+        console.log(`${msg.author.username} used uptime command in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
       
       case 'rule':
@@ -99,7 +98,7 @@ const msS = (msR + ' Milliseconds.');
               .setDescription(rule.one)
               .setThumbnail('https://gamedata.britishcouncil.org/sites/default/files/attachment/number-1_1.jpg')
             msg.channel.send(rules)
-            console.log(`${msg.author.username} used rule 1 in ${msg.channel.name} in ${msg.guild} at ` + time)
+            console.log(`${msg.author.username} used rule 1 in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
             break;
           case '2':
             rules = new Discord.MessageEmbed()
@@ -107,7 +106,7 @@ const msS = (msR + ' Milliseconds.');
               .setDescription(rule.two)
               .setThumbnail('https://gamedata.britishcouncil.org/sites/default/files/attachment/number-2_1.jpg')
             msg.channel.send(rules)
-            console.log(`${msg.author.username} used rule 2 in ${msg.channel.name} in ${msg.guild} at ` + time)
+            console.log(`${msg.author.username} used rule 2 in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
             break;
           case '3':
             rules = new Discord.MessageEmbed()
@@ -115,7 +114,7 @@ const msS = (msR + ' Milliseconds.');
               .setDescription(rule.three)
               .setThumbnail('https://gamedata.britishcouncil.org/sites/default/files/attachment/number-3_4.jpg')
             msg.channel.send(rules)
-            console.log(`${msg.author.username} used rule 3 in ${msg.channel.name} in ${msg.guild} at ` + time)
+            console.log(`${msg.author.username} used rule 3 in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
             break;
           case '4':
             rules = new Discord.MessageEmbed()
@@ -123,7 +122,7 @@ const msS = (msR + ' Milliseconds.');
               .setDescription(rule.four)
               .setThumbnail('https://gamedata.britishcouncil.org/sites/default/files/attachment/number-4_1.jpg')
             msg.channel.send(rules)
-            console.log(`${msg.author.username} used rule 4 in ${msg.channel.name} in ${msg.guild} at ` + time)
+            console.log(`${msg.author.username} used rule 4 in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
             break;
           case '5':
             rules = new Discord.MessageEmbed()
@@ -131,7 +130,7 @@ const msS = (msR + ' Milliseconds.');
               .setDescription(rule.five)
               .setThumbnail('https://gamedata.britishcouncil.org/sites/default/files/attachment/number-5_2.jpg')
             msg.channel.send(rules)
-            console.log(`${msg.author.username} used rule 5 in ${msg.channel.name} in ${msg.guild} at ` + time)
+            console.log(`${msg.author.username} used rule 5 in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
             break;
           case '6':
             rules = new Discord.MessageEmbed()
@@ -139,7 +138,7 @@ const msS = (msR + ' Milliseconds.');
               .setDescription(rule.six)
               .setThumbnail('https://gamedata.britishcouncil.org/sites/default/files/attachment/number-6_1.jpg')
             msg.channel.send(rules)
-            console.log(`${msg.author.username} used rule 6 in ${msg.channel.name} in ${msg.guild} at ` + time)
+            console.log(`${msg.author.username} used rule 6 in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
             break;
           case '7':
             rules = new Discord.MessageEmbed()
@@ -147,7 +146,7 @@ const msS = (msR + ' Milliseconds.');
               .setDescription(rule.seven)
               .setThumbnail('https://gamedata.britishcouncil.org/sites/default/files/attachment/number-7_0.jpg')
             msg.channel.send(rules)
-            console.log(`${msg.author.username} used rule 7 in ${msg.channel.name} in ${msg.guild} at ` + time)
+            console.log(`${msg.author.username} used rule 7 in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
             break;
           case '8':
             rules = new Discord.MessageEmbed()
@@ -155,7 +154,7 @@ const msS = (msR + ' Milliseconds.');
               .setDescription(rule.eight)
               .setThumbnail('https://gamedata.britishcouncil.org/sites/default/files/attachment/number-8_1.jpg')
             msg.channel.send(rules)
-            console.log(`${msg.author.username} used rule 8 in ${msg.channel.name} in ${msg.guild} at ` + time)
+            console.log(`${msg.author.username} used rule 8 in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
             break;
           case 'doctrine':
             const doctrine = new Discord.MessageEmbed()
@@ -163,7 +162,7 @@ const msS = (msR + ' Milliseconds.');
               .setURL('https://docs.google.com/document/d/1_y2z3UMxbu5Gj_G00rtYc_TCZo4WSWnjCzdIYoPwzyA/edit?usp=sharing')
               .setThumbnail('https://as2.ftcdn.net/jpg/02/39/27/83/500_F_239278359_NsFjY8Znsdnp5CqPqoOwclkDywuaaY0o.jpg')
             msg.channel.send(doctrine)
-            console.log(`${msg.author.username} used doctrine in ${msg.channel.name} in ${msg.guild} at ` + time)
+            console.log(`${msg.author.username} used doctrine in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
             break;
         }
         break;
@@ -175,7 +174,7 @@ const msS = (msR + ' Milliseconds.');
           .setURL('https://forms.gle/VQX3YDumkuw5u75u6')
           .setTitle('Requests Form')
         msg.channel.send(request)
-        console.log(`${msg.author.username} used request command in ${msg.channel.name} in ${msg.guild} at ` + time)
+        console.log(`${msg.author.username} used request command in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
       
       case 'bug':
@@ -185,7 +184,7 @@ const msS = (msR + ' Milliseconds.');
           .setURL('https://forms.gle/j8YENTiwt3de4tZa6')
           .setTitle('Bug Submission Form')
         msg.reply(bug)
-        console.log(`${msg.author.username} used bug command in ${msg.channel.name} in ${msg.guild} at ` + time)
+        console.log(`${msg.author.username} used bug command in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
 
       case 'help':
@@ -205,7 +204,7 @@ const msS = (msR + ' Milliseconds.');
           .addField('Ban', 'ONLY USEABLE BY MODS, Bans Tagged Member')
           .setFooter(`Any Questions Should Be Refered To Warboss741#6658`)
         msg.channel.send(help)
-        console.log(`${msg.author.username} used help command in ${msg.channel.name} in ${msg.guild} at ` + time)
+        console.log(`${msg.author.username} used help command in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
 
       case 'changelog':
@@ -217,7 +216,7 @@ const msS = (msR + ' Milliseconds.');
           .addField('Current Changelog Number :', '#3')
           .addField('Last Changelog Date :', '03/23/2020')
         msg.channel.send(change)
-        console.log(`${msg.author.username} used changelog command in ${msg.channel.name} in ${msg.guild} at ` + time)
+        console.log(`${msg.author.username} used changelog command in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
 
       case 'version':
@@ -228,7 +227,7 @@ const msS = (msR + ' Milliseconds.');
           .addField('Current Live Version :', '1.0.2')
           .addField('Current Testing Version :', '1.0.3')
         msg.channel.send(version)
-        console.log(`${msg.author.username} used version command in ${msg.channel.name} in ${msg.guild} at ` + time)
+        console.log(`${msg.author.username} used version command in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
 
       case 'roll':
@@ -240,7 +239,7 @@ const msS = (msR + ' Milliseconds.');
           .addField('Roll :', number)
           .setFooter('This command only uses pseudo-random functions so bugs will be apparent, please notify of bugs using bug submission form')
         msg.channel.send(roll)
-        console.log(`${msg.author.username} used roll command in ${msg.channel.name} in ${msg.guild} for ${args[1]} to ${args[2]} at ` + time)
+        console.log(`${msg.author.username} used roll command in ${msg.channel.name} in ${msg.guild} for ${args[1]} to ${args[2]} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
 
       case 'purge':
@@ -251,7 +250,7 @@ const msS = (msR + ' Milliseconds.');
           if (!args[1]) return msg.reply('Error: No value specified.')
           msg.channel.bulkDelete(args[1]);
         }
-        console.log(`${msg.author.username} used purge command in ${msg.channel.name} in ${msg.guild} at ` + time)
+        console.log(`${msg.author.username} used purge command in ${msg.channel.name} in ${msg.guild} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
       
       case 'warn':
@@ -317,7 +316,7 @@ const msS = (msR + ' Milliseconds.');
             }
           }
         }
-        console.log(`${msg.author.username} used the warn command on ` + args[1] + ` in ${msg.channel.name} in the guild ${msg.guild.name} at ` + time)
+        console.log(`${msg.author.username} used the warn command on ` + args[1] + ` in ${msg.channel.name} in the guild ${msg.guild.name} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
 
       case 'dungeon':
@@ -337,7 +336,7 @@ const msS = (msR + ' Milliseconds.');
             msg.reply('That user isn\'t in this server / You need to specify a person')
           }
         }
-        console.log(`${msg.author.username} used dungeon command in ${msg.channel.name} in ${msg.guild} on ${msg.mentions.users.first} at ` + time)
+        console.log(`${msg.author.username} used dungeon command in ${msg.channel.name} in ${msg.guild} on ${msg.mentions.users.first} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
 
       case 'kick':
@@ -365,7 +364,7 @@ const msS = (msR + ' Milliseconds.');
             msg.reply("That user isn\'t in the server / You need to specify a person")
           }
         }
-        console.log(`${msg.author.username} used kick command in ${msg.channel.name} in ${msg.guild} on ${msg.mentions.users.first} at ` + time)
+        console.log(`${msg.author.username} used kick command in ${msg.channel.name} in ${msg.guild} on ${msg.mentions.users.first} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
         break;
 
         case 'ban':
@@ -393,7 +392,7 @@ const msS = (msR + ' Milliseconds.');
             msg.reply("That user isn\'t in the server / You need to specify a person")
           }
         }
-      console.log(`${msg.author.username} used ban command in ${msg.channel.name} in ${msg.guild} on ${msg.mentions.users.first} at ` + time)
+      console.log(`${msg.author.username} used ban command in ${msg.channel.name} in ${msg.guild} on ${msg.mentions.users.first} at ` + timeDate({local: true, showMilliseconds: true, showTimeZone: true}))
       break;
     }
   }
